@@ -5,11 +5,11 @@ import java.util.PriorityQueue;
 
 public class Search {
 
-//	Robot robot = new Robot();
+	Robot robot;
 	
 	public Search() {}
 	
-	public PriorityQueue<Node> UCS(String[][] map) {
+	public PriorityQueue<Node> A_star(String[][] map) {
 		PriorityQueue<Node> frontier = new PriorityQueue<Node>();
 		HashMap<Node, Integer> explored = new HashMap<Node, Integer>();
 		PriorityQueue<Node> path = new PriorityQueue<Node>();
@@ -17,6 +17,7 @@ public class Search {
 		Node currNode = null;
 		
 		Node start = findStart(map);
+		robot = new Robot(start);
 		frontier.add(start);
 		
 		//search through unexplored nodes until goal found
@@ -58,6 +59,7 @@ public class Search {
 		}
 		
 		//build path
+		int totalCost = currNode.getCost();
 		path.add(currNode);
 		
 		do {
@@ -67,6 +69,11 @@ public class Search {
 
 		return path;
 		
+	}
+	
+	public int pathTotalCost(PriorityQueue<Node> path) {
+//		path.re
+		return 0;
 	}
 	
 	//NEEDS TO BE CHANGED TO REFLECT ASSIGNMENT
@@ -80,13 +87,13 @@ public class Search {
 	
 //	public ArrayList<Node> updateCostOfNeighbors(Node currNode, ArrayList<Node> neighbors) {
 //		for(Node n : neighbors) {
-//			if(currNode.getRobot().getDirection().equals("north")) {
+//			if(robot.getDirection().equals("north")) {
 //				
-//			} else if(currNode.getRobot().getDirection().equals("south")) {
+//			} else if(robot.getDirection().equals("south")) {
 //				
-//			} else if(currNode.getRobot().getDirection().equals("east")) {
+//			} else if(robot.getDirection().equals("east")) {
 //				
-//			} else if(currNode.getRobot().getDirection().equals("west")) {
+//			} else if(robot.getDirection().equals("west")) {
 //				
 //			}
 //		}

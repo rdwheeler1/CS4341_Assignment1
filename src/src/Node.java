@@ -6,7 +6,6 @@ public class Node implements Comparable<Node> {
 	String value;
 	int cost;
 	Node prevNode;
-	Robot robot;
 
 	public Node(int row, int col, String value) {
 		this.row = row;
@@ -14,7 +13,6 @@ public class Node implements Comparable<Node> {
 		this.value = value;
 		this.cost = 0;
 		this.prevNode = null;
-		this.robot = new Robot();
 	}
 
 	public int getRow() {return this.row;}
@@ -26,9 +24,12 @@ public class Node implements Comparable<Node> {
 
 	public Node getPrevNode() {return this.prevNode;}
 	public void setPrevNode(Node prevNode) {this.prevNode = prevNode;}
-
-	public Robot getRobot() {return this.robot;}
-	public void setRobot(Robot robot) {this.robot = robot;}
+	
+	public void updateNode(int row, int col, int newCost) {
+		this.row = row;
+		this.col = col;
+		this.cost += newCost;
+	}
 
 	@Override
 	public boolean equals(Object o) {
