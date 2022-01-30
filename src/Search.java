@@ -28,8 +28,10 @@ public class Search {
 
 			Node n = frontier.remove();
 			if(n.getValue().equals('G')) {
+				System.out.println(n.getCost());
 				goalFound = true;
 				currNode = n;
+				break;
 			}
 
 			System.out.println("exploring " + n.getValue());
@@ -38,20 +40,16 @@ public class Search {
 			ArrayList<Node> neighbors = findNeighbors(map, n);
 			for(Node child : neighbors) {
 				if(!frontier.contains(child) && !explored.containsKey(child)) {
-					child.setPrevNode(n);
-					child.setCost(child.getPrevNode().getCost() + calcCost(child));
 
 					System.out.println("from " + child.getPrevNode().getValue() + " to "+
 							child.getValue() + " costs: " +  child.getCost());
 
 					frontier.add(child);
 				} else if(frontier.contains(child)) {	// && child.cost < pre-existing.cost
-					child.setPrevNode(n);
-					child.setCost(child.getPrevNode().getCost() + calcCost(child));
 					for(Node f : frontier) {	//****
 						if(f.equals(child) && child.getCost() < f.getCost()) {
 							frontier.remove(f);
-							child.setPrevNode(n);
+							//child.setPrevNode(n);
 							frontier.add(child);
 							break;
 						}
@@ -71,74 +69,6 @@ public class Search {
 		return path;
 
 	}
-
-	int calcCost(Node n) {
-		if(n.getValue().equals('S') || n.getValue().equals('G')) {
-			return 1;
-		} else {
-			return n.getNumericValue();
-		}
-	}
-
-//	public PriorityQueue<Node> UCS(Character[][] map) {
-//
-//		int heuristic = 0;
-//
-//		PriorityQueue<Node> frontier = new PriorityQueue<Node>();
-//		boolean[][] closedCells = new boolean[map.length][map[0].length];
-//		initializeClosedMap(closedCells);
-//		HashMap<Node, Node> explored = new HashMap<Node, Node>();
-//		PriorityQueue<Node> path = new PriorityQueue<Node>();
-//		boolean goalFound = false;
-//		Node currNode = null;
-//
-//		Node start = findStart(map);
-//		frontier.add(start);
-//
-//		//search through unexplored nodes until goal found
-//		while (!frontier.isEmpty() && !goalFound) {
-//			Node currentNode = null;
-//			int shortestValue = -1;
-//			for (Node n : frontier) {
-//				if (n.getCost() + heuristic > shortestValue) {
-//					currentNode = n;
-//				}
-//			}
-//			if (currentNode.getValue().equals('G')) {
-//				goalFound = true;
-//				currNode = currentNode;
-//				break;
-//			}
-//
-//			closedCells[currentNode.getRow()][currentNode.getCol()] = true;
-//			explored.put(currentNode, currentNode);
-//			Node finalCurrentNode = currentNode;
-//			frontier.remove(currentNode);
-//			//frontier.removeIf(node -> node.getRow() == finalCurrentNode.getRow() && node.getCol() == finalCurrentNode.getRow());
-//
-//			ArrayList<Node> neighbors = findNeighbors(map, currentNode);
-//			for (Node child : neighbors) {
-//				child.setCost(child.prevNode.getCost() + child.getSingleNodeCost());
-//				if (currentNode.getCost() > child.getCost() && closedCells[child.getRow()][child.getCol()]) {
-//					explored.replace(child, child);
-//				} else if (currentNode.getCost() < child.getCost() && frontier.contains(child)) {
-//					explored.replace(child, child);
-//				} else if (!closedCells[child.getRow()][child.getCol()] && !frontier.contains(child)) {
-//					frontier.add(child);
-//				}
-//			}
-//		}
-//		//build path
-//		path.add(currNode);
-//
-//		do {
-//			currNode = currNode.getPrevNode();
-//			path.add(currNode);
-//		} while (!currNode.getValue().equals('S'));
-//
-//		return path;
-//
-//	}
 	
 	public Node findStart(Character[][] map) {
 		for(int i = 0; i < map.length; i++) {
@@ -216,13 +146,13 @@ public class Search {
 		if(n.isBashNode()){
 			try{
 				switch (n.direction){
-					case UP -> onlyBash = new Node(n.getRow()-1, n.getCol(), map[n.getRow()-1][n.getCol()], getNonBashDirection(n.direction));
-					case RIGHT -> onlyBash = new Node(n.getRow(), n.getCol() + 1, map[n.getRow()][n.getCol()+1], getNonBashDirection(n.direction));
-					case DOWN -> onlyBash = new Node(n.getRow()+1, n.getCol(), map[n.getRow()+1][n.getCol()], getNonBashDirection(n.direction));
-					case LEFT -> onlyBash = new Node(n.getRow(), n.getCol() - 1, map[n.getRow()][n.getCol()-1], getNonBashDirection(n.direction));
+					case BASHUP -> onlyBash = new Node(n.getRow()-1, n.getCol(), map[n.getRow()-1][n.getCol()], getNonBashDirection(n.direction));
+					case BASHRIGHT -> onlyBash = new Node(n.getRow(), n.getCol() + 1, map[n.getRow()][n.getCol()+1], getNonBashDirection(n.direction));
+					case BASHDOWN -> onlyBash = new Node(n.getRow()+1, n.getCol(), map[n.getRow()+1][n.getCol()], getNonBashDirection(n.direction));
+					case BASHLEFT -> onlyBash = new Node(n.getRow(), n.getCol() - 1, map[n.getRow()][n.getCol()-1], getNonBashDirection(n.direction));
 				}
 				onlyBash.setPrevNode(n);
-				onlyBash.setSingleNodeCost(onlyBash.getNumericValue());
+				onlyBash.setCost(onlyBash.getNumericValue() + onlyBash.prevNode.getCost());
 				neighbors.add(onlyBash);
 			}
 			catch (Exception e){
@@ -241,7 +171,7 @@ public class Search {
 					case LEFT -> bash = new Node(n.getRow(), n.getCol() - 1, map[n.getRow()][n.getCol()-1], getBashDirection(n.direction));
 				}
 				bash.setPrevNode(n);
-				bash.setSingleNodeCost(3);
+				bash.setCost(3 + bash.prevNode.getCost());
 				neighbors.add(bash);
 			} catch (Exception e){
 				System.out.println("Bash Neighbor is out of bounds");
@@ -254,7 +184,7 @@ public class Search {
 					case LEFT -> forward = new Node(n.getRow(), n.getCol() - 1, map[n.getRow()][n.getCol()-1], n.direction);
 				}
 				forward.setPrevNode(n);
-				forward.setSingleNodeCost(forward.getNumericValue());
+				forward.setCost(forward.getNumericValue() + forward.prevNode.getCost());
 				neighbors.add(forward);
 			} catch (Exception e){
 				System.out.println("Forward neighbor is out of bounds");
@@ -263,8 +193,8 @@ public class Search {
 			left = new Node(n.getRow(), n.getCol(), map[n.getRow()][n.getCol()], getLeftDirection(n.direction));
 			right.setPrevNode(n);
 			left.setPrevNode(n);
-			right.setSingleNodeCost((int) Math.ceil(((double) right.getNumericValue() / 2)));
-			left.setSingleNodeCost((int) Math.ceil(((double) left.getNumericValue() / 2)));
+			right.setCost((int) Math.ceil(((double) right.getNumericValue() / 2)) + right.prevNode.getCost());
+			left.setCost((int) Math.ceil(((double) left.getNumericValue() / 2)) + left.prevNode.getCost());
 			neighbors.add(right);
 			neighbors.add(left);
 
