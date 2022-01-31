@@ -17,7 +17,7 @@ public class Search {
 		LinkedList<Node> path = new LinkedList<>();
 		Node currNode = null;
 		Node goal = findGoal(map);
-		Heuristics heuristic = new Heuristics(4);
+		Heuristics heuristic = new Heuristics(5);
 
 		Node start = findStart(map);
 		start.setaStarCost(start.getCost() + heuristic.heuristic(start.getAbsVert(), start.getAbsHoriz()));
@@ -67,6 +67,29 @@ public class Search {
 			currNode = currNode.getPrevNode();
 			path.addFirst(currNode);
 		} while(!currNode.getValue().equals('S'));
+
+		int pathScore = 0;
+		for(int i = 0; i < path.size(); i++) {
+			if(path.get(i).getValue().equals('G') || path.get(i).getValue().equals('S')) {
+				pathScore++;
+			} else {
+				pathScore = pathScore + path.get(i).getCost();
+			}
+		}
+
+		int numberOfMoves = path.size();
+
+		int numberOfNodes = explored.size();
+
+		StringBuilder orderOfMoves = new StringBuilder();
+		for(int i = 0; i < path.size(); i++) {
+			orderOfMoves.append(path.get(i).getDirection() + " ");
+		}
+
+		System.out.println("The score of the path was " + pathScore);
+		System.out.println("The number of moves was " + numberOfMoves);
+		System.out.println("The number of nodes expanded was " + numberOfNodes);
+		System.out.println("The order of moves made was " + orderOfMoves);
 
 		return path;
 
