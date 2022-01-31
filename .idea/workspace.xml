@@ -2,7 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b0fbe9ab-59c4-4d1f-93b4-53103d736478" name="Changes" comment="Minor cleanup">
+      <change afterPath="$PROJECT_DIR$/src/Enums/MoveType.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/CS4341_Assignment1/src/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CS4341_Assignment1/src/Main.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/CS4341_Assignment1/src/Search$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CS4341_Assignment1/src/Search$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/CS4341_Assignment1/src/Search.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CS4341_Assignment1/src/Search.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Node.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Node.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Search.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Search.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -12,15 +19,15 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Enum" />
         <option value="Class" />
+        <option value="Enum" />
       </list>
     </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="main" />
+        <entry key="$PROJECT_DIR$" value="MergingStuff" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -59,7 +66,7 @@
       <recent name="$PROJECT_DIR$" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.Main">
+  <component name="RunManager" selected="JUnit.TestUCS.UCSTest">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="src.Main" />
       <module name="CS4341_Assignment1" />
@@ -113,8 +120,8 @@
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.Main" />
         <item itemvalue="JUnit.TestUCS.UCSTest" />
+        <item itemvalue="Application.Main" />
         <item itemvalue="JUnit.TestUCS.findStartTest" />
         <item itemvalue="JUnit.TestUCS.UCSTest" />
         <item itemvalue="JUnit.TestUCS.findStartTest" />
