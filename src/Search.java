@@ -20,7 +20,7 @@ public class Search {
 		Heuristics heuristic = new Heuristics(4);
 
 		Node start = findStart(map);
-		start.setaStarCost(start.getCost() + heuristic.heuristic(start.absVert, start.absHoriz));
+		start.setaStarCost(start.getCost() + heuristic.heuristic(start.getAbsVert(), start.getAbsHoriz()));
 		frontier.add(start);
 
 		//search through unexplored nodes until goal found
@@ -43,14 +43,15 @@ public class Search {
 					System.out.println("from " + child.getPrevNode().getValue() + " to "+
 							child.getValue() + " costs: " +
 							(child.getCost() + heuristic.heuristic(child.getAbsVert(), child.getAbsHoriz())));
-					child.setaStarCost(child.getCost() + heuristic.heuristic(child.absVert,child.absHoriz));
+					child.setaStarCost(child.getCost() + heuristic.heuristic(child.getAbsVert(),child.getAbsHoriz()));
 					frontier.add(child);
 				} else if(frontier.contains(child)) {	// && child.cost < pre-existing.cost
 					for(Node f : frontier) {	//****
-						if(f.equals(child) && child.getCost() + heuristic.heuristic(child.absVert, child.absHoriz)
-								< f.getCost() + heuristic.heuristic(f.absVert, f.absHoriz)) {
+						child.setaStarCost(child.getCost() + heuristic.heuristic(child.getAbsVert(),child.getAbsHoriz()));
+						f.setaStarCost(f.getCost() + heuristic.heuristic(f.getAbsVert(), f.getAbsHoriz()));
+						if(f.equals(child) && child.getaStarCost()
+								< f.getaStarCost()) {
 							frontier.remove(f);
-							child.setaStarCost(child.getCost() + heuristic.heuristic(child.absVert,child.absHoriz));
 							frontier.add(child);
 							break;
 						}
@@ -165,14 +166,14 @@ public class Search {
 
 		if(n.isBashNode()){
 			try{
-				switch (n.direction){
-					case BASHUP -> onlyBash = new Node(n.getRow()-1, n.getCol(), map[n.getRow()-1][n.getCol()], getNonBashDirection(n.direction));
-					case BASHRIGHT -> onlyBash = new Node(n.getRow(), n.getCol() + 1, map[n.getRow()][n.getCol()+1], getNonBashDirection(n.direction));
-					case BASHDOWN -> onlyBash = new Node(n.getRow()+1, n.getCol(), map[n.getRow()+1][n.getCol()], getNonBashDirection(n.direction));
-					case BASHLEFT -> onlyBash = new Node(n.getRow(), n.getCol() - 1, map[n.getRow()][n.getCol()-1], getNonBashDirection(n.direction));
+				switch (n.getDirection()){
+					case BASHUP -> onlyBash = new Node(n.getRow()-1, n.getCol(), map[n.getRow()-1][n.getCol()], getNonBashDirection(n.getDirection()));
+					case BASHRIGHT -> onlyBash = new Node(n.getRow(), n.getCol() + 1, map[n.getRow()][n.getCol()+1], getNonBashDirection(n.getDirection()));
+					case BASHDOWN -> onlyBash = new Node(n.getRow()+1, n.getCol(), map[n.getRow()+1][n.getCol()], getNonBashDirection(n.getDirection()));
+					case BASHLEFT -> onlyBash = new Node(n.getRow(), n.getCol() - 1, map[n.getRow()][n.getCol()-1], getNonBashDirection(n.getDirection()));
 				}
 				onlyBash.setPrevNode(n);
-				onlyBash.setCost(onlyBash.getNumericValue() + onlyBash.prevNode.getCost());
+				onlyBash.setCost(onlyBash.getNumericValue() + onlyBash.getPrevNode().getCost());
 				onlyBash.setAbsHoriz(getHoriz(onlyBash, goal));
 				onlyBash.setAbsVert(getVert(onlyBash, goal));
 				neighbors.add(onlyBash);
@@ -186,14 +187,14 @@ public class Search {
 
 		else{
 			try{
-				switch (n.direction){
-					case UP -> bash = new Node(n.getRow()-1, n.getCol(), map[n.getRow()-1][n.getCol()], getBashDirection(n.direction));
-					case RIGHT -> bash = new Node(n.getRow(), n.getCol() + 1, map[n.getRow()][n.getCol()+1], getBashDirection(n.direction));
-					case DOWN -> bash = new Node(n.getRow()+1, n.getCol(), map[n.getRow()+1][n.getCol()], getBashDirection(n.direction));
-					case LEFT -> bash = new Node(n.getRow(), n.getCol() - 1, map[n.getRow()][n.getCol()-1], getBashDirection(n.direction));
+				switch (n.getDirection()){
+					case UP -> bash = new Node(n.getRow()-1, n.getCol(), map[n.getRow()-1][n.getCol()], getBashDirection(n.getDirection()));
+					case RIGHT -> bash = new Node(n.getRow(), n.getCol() + 1, map[n.getRow()][n.getCol()+1], getBashDirection(n.getDirection()));
+					case DOWN -> bash = new Node(n.getRow()+1, n.getCol(), map[n.getRow()+1][n.getCol()], getBashDirection(n.getDirection()));
+					case LEFT -> bash = new Node(n.getRow(), n.getCol() - 1, map[n.getRow()][n.getCol()-1], getBashDirection(n.getDirection()));
 				}
 				bash.setPrevNode(n);
-				bash.setCost(3 + bash.prevNode.getCost());
+				bash.setCost(3 + bash.getPrevNode().getCost());
 				bash.setAbsHoriz(getHoriz(bash, goal));
 				bash.setAbsVert(getVert(bash, goal));
 				neighbors.add(bash);
@@ -201,26 +202,26 @@ public class Search {
 				System.out.println("Bash Neighbor is out of bounds");
 			}
 			try{
-				switch (n.direction){
-					case UP -> forward = new Node(n.getRow()-1, n.getCol(), map[n.getRow()-1][n.getCol()] , n.direction);
-					case RIGHT -> forward = new Node(n.getRow(), n.getCol() + 1, map[n.getRow()][n.getCol()+1], n.direction);
-					case DOWN -> forward = new Node(n.getRow()+1, n.getCol(), map[n.getRow()+1][n.getCol()], n.direction);
-					case LEFT -> forward = new Node(n.getRow(), n.getCol() - 1, map[n.getRow()][n.getCol()-1], n.direction);
+				switch (n.getDirection()){
+					case UP -> forward = new Node(n.getRow()-1, n.getCol(), map[n.getRow()-1][n.getCol()] , n.getDirection());
+					case RIGHT -> forward = new Node(n.getRow(), n.getCol() + 1, map[n.getRow()][n.getCol()+1], n.getDirection());
+					case DOWN -> forward = new Node(n.getRow()+1, n.getCol(), map[n.getRow()+1][n.getCol()], n.getDirection());
+					case LEFT -> forward = new Node(n.getRow(), n.getCol() - 1, map[n.getRow()][n.getCol()-1], n.getDirection());
 				}
 				forward.setPrevNode(n);
-				forward.setCost(forward.getNumericValue() + forward.prevNode.getCost());
+				forward.setCost(forward.getNumericValue() + forward.getPrevNode().getCost());
 				forward.setAbsHoriz(getHoriz(forward, goal));
 				forward.setAbsVert(getVert(forward, goal));
 				neighbors.add(forward);
 			} catch (Exception e){
 				System.out.println("Forward neighbor is out of bounds");
 			}
-			right = new Node(n.getRow(), n.getCol(), map[n.getRow()][n.getCol()], getRightDirection(n.direction));
-			left = new Node(n.getRow(), n.getCol(), map[n.getRow()][n.getCol()], getLeftDirection(n.direction));
+			right = new Node(n.getRow(), n.getCol(), map[n.getRow()][n.getCol()], getRightDirection(n.getDirection()));
+			left = new Node(n.getRow(), n.getCol(), map[n.getRow()][n.getCol()], getLeftDirection(n.getDirection()));
 			right.setPrevNode(n);
 			left.setPrevNode(n);
-			right.setCost((int) Math.ceil(((double) right.getNumericValue() / 2)) + right.prevNode.getCost());
-			left.setCost((int) Math.ceil(((double) left.getNumericValue() / 2)) + left.prevNode.getCost());
+			right.setCost((int) Math.ceil(((double) right.getNumericValue() / 2)) + right.getPrevNode().getCost());
+			left.setCost((int) Math.ceil(((double) left.getNumericValue() / 2)) + left.getPrevNode().getCost());
 			right.setAbsHoriz(getHoriz(right, goal));
 			right.setAbsVert(getVert(right, goal));
 			left.setAbsHoriz(getHoriz(left, goal));

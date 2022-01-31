@@ -3,15 +3,15 @@ package src;
 import src.Enums.Direction;
 
 public class Node implements Comparable<Node> {
-	int row;
-	int col;
-	Character value;
-	int absVert;
-	int absHoriz;
-	int Cost;
-	int aStarCost;
-	Node prevNode;
-	Direction direction;
+	private int row;
+	private int col;
+	private Character value;
+	private int absVert;
+	private int absHoriz;
+	private int Cost;
+	private int aStarCost;
+	private Node prevNode;
+	private Direction direction;
 
 	public Node(int row, int col, Character value, Direction direction) {
 		this.row = row;
@@ -25,6 +25,10 @@ public class Node implements Comparable<Node> {
 
 	public int getAbsVert() {
 		return absVert;
+	}
+
+	public Direction getDirection() {
+		return direction;
 	}
 
 	public void setAbsVert(int absVert) {
