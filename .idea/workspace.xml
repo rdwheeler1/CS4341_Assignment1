@@ -1,7 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="736fb6c1-bd3a-429e-89d4-bd4630a09086" name="Changes" comment="Movement types fully implemented" />
+    <list default="true" id="b0fbe9ab-59c4-4d1f-93b4-53103d736478" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/Heuristics.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/CS4341_Assignment1/src/Node.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CS4341_Assignment1/src/Node.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/CS4341_Assignment1/src/Search$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CS4341_Assignment1/src/Search$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/CS4341_Assignment1/src/Search.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CS4341_Assignment1/src/Search.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/CS4341_Assignment1/test/TestUCS.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CS4341_Assignment1/test/TestUCS.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Node.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Node.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Search.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Search.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/TestUCS.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/TestUCS.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -11,13 +21,14 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Enum" />
+        <option value="Class" />
       </list>
     </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="Movement_Types" />
+        <entry key="$PROJECT_DIR$" value="main" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />

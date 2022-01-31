@@ -10,7 +10,8 @@ import static src.Enums.Direction.*;
 
 public class Search {
 
-	public Search() {}
+	public Search() {
+	}
 
 	public PriorityQueue<Node> UCS(Character[][] map) {
 		PriorityQueue<Node> frontier = new PriorityQueue<Node>();
@@ -18,6 +19,8 @@ public class Search {
 		PriorityQueue<Node> path = new PriorityQueue<Node>();
 		boolean goalFound = false;
 		Node currNode = null;
+		Node goal = findGoal(map);
+		Heuristics heuristic = new Heuristics(1);
 
 		Node start = findStart(map);
 		frontier.add(start);
@@ -35,19 +38,19 @@ public class Search {
 			}
 
 			System.out.println("exploring " + n.getValue());
-			explored.put(n, n.getCost());
+			explored.put(n, n.getCost() + heuristic.heuristic(n.absVert, n.absHoriz));
 
-			ArrayList<Node> neighbors = findNeighbors(map, n);
+			ArrayList<Node> neighbors = findNeighbors(map, n, goal);
 			for(Node child : neighbors) {
 				if(!frontier.contains(child) && !explored.containsKey(child)) {
 
 					System.out.println("from " + child.getPrevNode().getValue() + " to "+
-							child.getValue() + " costs: " +  child.getCost());
-
+							child.getValue() + " costs: " +  child.getCost() + heuristic.heuristic(child.absVert, child.absHoriz));
 					frontier.add(child);
 				} else if(frontier.contains(child)) {	// && child.cost < pre-existing.cost
 					for(Node f : frontier) {	//****
-						if(f.equals(child) && child.getCost() < f.getCost()) {
+						if(f.equals(child) && child.getCost() + heuristic.heuristic(child.absVert, child.absHoriz)
+								< f.getCost() + heuristic.heuristic(f.absVert, f.absHoriz)) {
 							frontier.remove(f);
 							//child.setPrevNode(n);
 							frontier.add(child);
@@ -81,6 +84,35 @@ public class Search {
 		}
 		return null;
 	}
+
+	public Node findGoal(Character[][] map) {
+		for(int i = 0; i < map.length; i++) {
+			for(int j = 0; j < map[i].length; j++) {
+				Character val = map[i][j];
+				if(val.equals('G')) {
+					return new Node(i,j,'G', UP);
+				}
+			}
+		}
+		return null;
+	}
+
+	public int getVert(Node start,Node goal) {
+		int startHeight = start.getRow();
+		int goalHeight = goal.getRow();
+		int difference = startHeight - goalHeight;
+		int vert = Math.abs(difference);
+		return vert;
+	}
+
+	public int getHoriz(Node start,Node goal) {
+		int startHeight = start.getCol();
+		int goalHeight = goal.getCol();
+		int difference = startHeight - goalHeight;
+		int horiz = Math.abs(difference);
+		return horiz;
+	}
+
 
 	public void initializeClosedMap(boolean[][] map) {
 		for(int i = 0; i < map.length; i++) {
@@ -135,7 +167,7 @@ public class Search {
 	}
 	
 	// gets surrounding nodes of a current node
-	public ArrayList<Node> findNeighbors(Character[][] map, Node n) {
+	public ArrayList<Node> findNeighbors(Character[][] map, Node n, Node goal) {
 		ArrayList<Node> neighbors = new ArrayList<Node>();
 		Node bash = null;
 		Node forward = null;
@@ -153,6 +185,8 @@ public class Search {
 				}
 				onlyBash.setPrevNode(n);
 				onlyBash.setCost(onlyBash.getNumericValue() + onlyBash.prevNode.getCost());
+				onlyBash.setAbsHoriz(getHoriz(onlyBash, goal));
+				onlyBash.setAbsVert(getVert(onlyBash, goal));
 				neighbors.add(onlyBash);
 			}
 			catch (Exception e){
@@ -172,6 +206,8 @@ public class Search {
 				}
 				bash.setPrevNode(n);
 				bash.setCost(3 + bash.prevNode.getCost());
+				bash.setAbsHoriz(getHoriz(bash, goal));
+				bash.setAbsVert(getVert(bash, goal));
 				neighbors.add(bash);
 			} catch (Exception e){
 				System.out.println("Bash Neighbor is out of bounds");
@@ -185,6 +221,8 @@ public class Search {
 				}
 				forward.setPrevNode(n);
 				forward.setCost(forward.getNumericValue() + forward.prevNode.getCost());
+				forward.setAbsHoriz(getHoriz(forward, goal));
+				forward.setAbsVert(getVert(forward, goal));
 				neighbors.add(forward);
 			} catch (Exception e){
 				System.out.println("Forward neighbor is out of bounds");
@@ -195,6 +233,10 @@ public class Search {
 			left.setPrevNode(n);
 			right.setCost((int) Math.ceil(((double) right.getNumericValue() / 2)) + right.prevNode.getCost());
 			left.setCost((int) Math.ceil(((double) left.getNumericValue() / 2)) + left.prevNode.getCost());
+			right.setAbsHoriz(getHoriz(right, goal));
+			right.setAbsVert(getVert(right, goal));
+			left.setAbsHoriz(getHoriz(left, goal));
+			left.setAbsVert(getVert(left, goal));
 			neighbors.add(right);
 			neighbors.add(left);
 

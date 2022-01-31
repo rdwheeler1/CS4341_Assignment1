@@ -6,6 +6,8 @@ public class Node implements Comparable<Node> {
 	int row;
 	int col;
 	Character value;
+	int absVert;
+	int absHoriz;
 	int Cost;
 	int singleNodeCost;
 	Node prevNode;
@@ -19,6 +21,22 @@ public class Node implements Comparable<Node> {
 		this.singleNodeCost = 1;
 		this.prevNode = null;
 		this.direction = direction;
+	}
+
+	public int getAbsVert() {
+		return absVert;
+	}
+
+	public void setAbsVert(int absVert) {
+		this.absVert = absVert;
+	}
+
+	public int getAbsHoriz() {
+		return absHoriz;
+	}
+
+	public void setAbsHoriz(int absHoriz) {
+		this.absHoriz = absHoriz;
 	}
 
 	public int getRow() {return this.row;}
