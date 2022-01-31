@@ -17,7 +17,7 @@ public class Search {
 		LinkedList<Node> path = new LinkedList<>();
 		Node currNode = null;
 		Node goal = findGoal(map);
-		Heuristics heuristic = new Heuristics(2);
+		Heuristics heuristic = new Heuristics(5);
 
 		Node start = findStart(map);
 		start.setaStarCost(start.getCost() + heuristic.heuristic(start.getAbsVert(), start.getAbsHoriz()));
