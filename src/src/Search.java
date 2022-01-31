@@ -103,6 +103,18 @@ public class Search {
 		}
 		return null;
 	}
+
+	public Node findGoal(String[][] map) {
+		for(int i = 0; i < map.length; i++) {
+			for(int j = 0; j < map[i].length; j++) {
+				String val = map[i][j];
+				if(val.equals("G")) {
+					return new Node(i,j,"G");
+				}
+			}
+		}
+		return null;
+	}
 	
 	// gets surrounding nodes of a current node
 	public ArrayList<Node> findNeighbors(String[][] map, Node n) {
@@ -133,6 +145,65 @@ public class Search {
 			neighbors.add(right);
 		} 
 		return neighbors;
+	}
+
+	public int getVert(Node start,Node goal) {
+		int startHeight = start.getRow();
+		int goalHeight = goal.getRow();
+		int difference = startHeight - goalHeight;
+		int vert = Math.abs(difference);
+		return vert;
+	}
+
+	public int getHoriz(Node start,Node goal) {
+		int startHeight = start.getCol();
+		int goalHeight = goal.getCol();
+		int difference = startHeight - goalHeight;
+		int horiz = Math.abs(difference);
+		return horiz;
+	}
+
+	public PriorityQueue<Node> aStar(String[][] map) {
+		PriorityQueue<Node> frontier = new PriorityQueue<>();
+		PriorityQueue<Node> explored = new PriorityQueue<>();
+		PriorityQueue<Node> path = new PriorityQueue<>();
+		Heuristics heuristic = new Heuristics();
+
+
+		Node start = findStart(map);
+		Node goal = findGoal(map);
+		while(!frontier.isEmpty()) {
+			Node exploring = frontier.peek();
+			if(exploring == goal) {
+				path.add(exploring);
+				return path;
+			}
+			ArrayList<Node> neighbours = findNeighbors(map, exploring);
+			for(Node child: neighbours) {
+				int vertical = getVert(start,goal);
+				int horizontal = getHoriz(start,goal);
+				int totalValue = calcCost(child) + heuristic.heuristic1(vertical,horizontal);
+
+				if(!frontier.contains(child) && !explored.contains(child)) {
+					child.prevNode = exploring;
+					child.cost = totalValue;
+					frontier.add(child);
+				} else {
+					if(totalValue > 0) {
+						child.prevNode = exploring;
+
+
+						if (explored.contains(child)) {
+							explored.remove(child);
+							frontier.add(child);
+						}
+					}
+				}
+			}
+			frontier.remove(exploring);
+			explored.add(exploring);
+		}
+		return path;
 	}
 	
 }
