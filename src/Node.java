@@ -1,6 +1,7 @@
 package src;
 
 import src.Enums.Direction;
+import src.Enums.MoveType;
 
 public class Node implements Comparable<Node> {
 	private int row;
@@ -12,8 +13,9 @@ public class Node implements Comparable<Node> {
 	private int aStarCost;
 	private Node prevNode;
 	private Direction direction;
+	private MoveType moveType;
 
-	public Node(int row, int col, Character value, Direction direction) {
+	public Node(int row, int col, Character value, Direction direction, MoveType moveType) {
 		this.row = row;
 		this.col = col;
 		this.value = value;
@@ -21,6 +23,11 @@ public class Node implements Comparable<Node> {
 		this.aStarCost = 1;
 		this.prevNode = null;
 		this.direction = direction;
+		this.moveType = moveType;
+	}
+
+	public MoveType getMoveType() {
+		return moveType;
 	}
 
 	public int getAbsVert() {
