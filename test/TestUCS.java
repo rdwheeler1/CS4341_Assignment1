@@ -7,14 +7,15 @@ import java.util.PriorityQueue;
 
 import org.junit.jupiter.api.Test;
 
+import src.Enums.Direction;
 import src.Node;
 import src.Search;
 
 class TestUCS {
 
-	String[][] testBoard = {{"4", "G", "4", "6"},
-			{"2", "9", "9", "6"},
-			{"1", "4", "3", "S"}};
+	Character[][] testBoard = {{'4', 'G', '4', '6'},
+			{'2', '9', '9', '6'},
+			{'1', '4', 'S', '3'}};
 	Search search = new Search();
 
 	@Test
@@ -26,7 +27,7 @@ class TestUCS {
 
 	@Test
 	void FindNeighborsTest() {
-		Node n = new Node(1, 2, testBoard[1][2]);
+		Node n = new Node(1, 2, testBoard[1][2], Direction.UP);
 		ArrayList<Node> nbrs = search.findNeighbors(testBoard, n);
 		assertFalse(nbrs.isEmpty());
 		System.out.println("");
@@ -34,27 +35,27 @@ class TestUCS {
 
 	@Test
 	void OutOfBoundsNeighborTest() {
-		Node top = new Node(0, 2, testBoard[0][2]);
+		Node top = new Node(0, 2, testBoard[0][2], Direction.UP);
 		ArrayList<Node> nbrs1 = search.findNeighbors(testBoard, top);
 		assertFalse(nbrs1.isEmpty());
 		System.out.println("");
 
-		Node bottom = new Node(2, 1, testBoard[2][1]);
+		Node bottom = new Node(2, 1, testBoard[2][1], Direction.UP);
 		ArrayList<Node> nbrs2 = search.findNeighbors(testBoard, bottom);
 		assertFalse(nbrs2.isEmpty());
 		System.out.println("");
 
-		Node left = new Node(1, 0, testBoard[1][0]);
+		Node left = new Node(1, 0, testBoard[1][0], Direction.UP);
 		ArrayList<Node> nbrs3 = search.findNeighbors(testBoard, left);
 		assertFalse(nbrs3.isEmpty());
 		System.out.println("");
 
-		Node right = new Node(1, 3, testBoard[1][3]);
+		Node right = new Node(1, 3, testBoard[1][3], Direction.UP);
 		ArrayList<Node> nbrs4 = search.findNeighbors(testBoard, right);
 		assertFalse(nbrs4.isEmpty());
 		System.out.println("");
 
-		Node corner = new Node(0, 0, testBoard[0][0]);
+		Node corner = new Node(0, 0, testBoard[0][0], Direction.UP);
 		ArrayList<Node> nbrs5 = search.findNeighbors(testBoard, corner);
 		assertFalse(nbrs5.isEmpty());
 	}
@@ -63,12 +64,12 @@ class TestUCS {
 	void NewContainsTest() {
 		PriorityQueue<Node> pq = new PriorityQueue<Node>();
 		//ArrayList<Node> al = new ArrayList<Node>();
-		Node a = new Node(1, 2, testBoard[1][2]);
+		Node a = new Node(1, 2, testBoard[1][2], Direction.UP);
 		a.setCost(10);
 		pq.add(a);
 		//al.add(a);
 
-		Node b = new Node(1, 2, testBoard[1][2]);
+		Node b = new Node(1, 2, testBoard[1][2], Direction.UP);
 		b.setCost(5);
 		if(pq.contains(b) && b.getCost() < a.getCost()) {
 			pq.remove(a);
@@ -84,11 +85,11 @@ class TestUCS {
 	@Test
 	void MinPQTest() {
 		PriorityQueue<Node> pq = new PriorityQueue<Node>();
-		Node a = new Node(1, 2, testBoard[1][2]);
+		Node a = new Node(1, 2, testBoard[1][2], Direction.UP);
 		a.setCost(10);
 		pq.add(a);
 
-		Node b = new Node(0, 0, testBoard[0][0]);
+		Node b = new Node(0, 0, testBoard[0][0], Direction.UP);
 		b.setCost(5);
 		pq.add(b);
 
