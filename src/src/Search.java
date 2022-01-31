@@ -189,10 +189,9 @@ public class Search {
 					child.cost = totalValue;
 					frontier.add(child);
 				} else {
-					if(totalValue > 0) {
+					if(totalValue < child.cost) {
 						child.prevNode = exploring;
-
-
+						child.cost = totalValue;
 						if (explored.contains(child)) {
 							explored.remove(child);
 							frontier.add(child);

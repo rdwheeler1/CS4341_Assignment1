@@ -30,12 +30,11 @@ public class Heuristics {
     }
 
     public int heuristic5(int absVert, int absHoriz) {
-        int squaredVert = absVert * absVert;
-        int squaredHoriz = absHoriz * absHoriz;
-        int
+        int multiplyDistance = absHoriz * absVert;
+        return multiplyDistance;
     }
 
     public int heuristic6(int absVert, int absHoriz) {
-        return 0;
+        return heuristic5(absVert, absHoriz) * 3;
     }
 }
