@@ -30,21 +30,21 @@ public class Search {
 
 			Node n = frontier.remove();
 			if(n.getValue().equals('G')) {
-				System.out.println(n.getCost());
+//				System.out.println(n.getCost());
 				currNode = n;
 				break;
 			}
 
-			System.out.println("exploring " + n.getValue());
+//			System.out.println("exploring " + n.getValue());
 			explored.put(n, n.getCost());
 
 			ArrayList<Node> neighbors = findNeighbors(map, n, goal);
 			for(Node child : neighbors) {
 				if(!frontier.contains(child) && !explored.containsKey(child)) {
 
-					System.out.println("from " + child.getPrevNode().getValue() + " to "+
-							child.getValue() + " costs: " +
-							(child.getCost() + heuristic.heuristic(child.getAbsVert(), child.getAbsHoriz())));
+//					System.out.println("from " + child.getPrevNode().getValue() + " to "+
+//							child.getValue() + " costs: " +
+//							(child.getCost() + heuristic.heuristic(child.getAbsVert(), child.getAbsHoriz())));
 					child.setaStarCost(child.getCost() + heuristic.heuristic(child.getAbsVert(),child.getAbsHoriz()));
 					frontier.add(child);
 				} else if(frontier.contains(child)) {	// && child.cost < pre-existing.cost
@@ -196,7 +196,7 @@ public class Search {
 				neighbors.add(onlyBash);
 			}
 			catch (Exception e){
-				System.out.println("Neighbor is out of bounds");
+				//System.out.println("Neighbor is out of bounds");
 				return neighbors;
 			}
 			return neighbors;
@@ -216,7 +216,7 @@ public class Search {
 				bash.setAbsVert(getVert(bash, goal));
 				neighbors.add(bash);
 			} catch (Exception e){
-				System.out.println("Bash Neighbor is out of bounds");
+				//System.out.println("Bash Neighbor is out of bounds");
 			}
 			try{
 				switch (n.getDirection()){
@@ -231,7 +231,7 @@ public class Search {
 				forward.setAbsVert(getVert(forward, goal));
 				neighbors.add(forward);
 			} catch (Exception e){
-				System.out.println("Forward neighbor is out of bounds");
+				//System.out.println("Forward neighbor is out of bounds");
 			}
 			right = new Node(n.getRow(), n.getCol(), map[n.getRow()][n.getCol()], getRightDirection(n.getDirection()), MoveType.RIGHT);
 			left = new Node(n.getRow(), n.getCol(), map[n.getRow()][n.getCol()], getLeftDirection(n.getDirection()), MoveType.LEFT);
