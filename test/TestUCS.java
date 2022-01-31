@@ -2,12 +2,10 @@ package test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-import java.util.ArrayList;
-import java.util.PriorityQueue;
+import java.util.LinkedList;
 
 import org.junit.jupiter.api.Test;
 
-import src.Enums.Direction;
 import src.Node;
 import src.Search;
 
@@ -101,11 +99,9 @@ class TestUCS {
 
 	@Test
 	void UCSTest() {
-		PriorityQueue<Node> a = search.UCS(testBoard);
-		while(!a.isEmpty()) {
-			System.out.print(a.remove().getValue() + " -> ");
-		}
-		assertFalse(!a.isEmpty());
+		LinkedList<Node> a = search.AStar(testBoard);
+		a.stream().forEach(x -> System.out.print(x.getValue() + " -> "));
+		assertFalse(a.isEmpty());
 	}
 
 }

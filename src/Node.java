@@ -9,7 +9,7 @@ public class Node implements Comparable<Node> {
 	int absVert;
 	int absHoriz;
 	int Cost;
-	int singleNodeCost;
+	int aStarCost;
 	Node prevNode;
 	Direction direction;
 
@@ -18,7 +18,7 @@ public class Node implements Comparable<Node> {
 		this.col = col;
 		this.value = value;
 		this.Cost = 0;
-		this.singleNodeCost = 1;
+		this.aStarCost = 1;
 		this.prevNode = null;
 		this.direction = direction;
 	}
@@ -54,11 +54,11 @@ public class Node implements Comparable<Node> {
 
 	public int getCost() {return this.Cost;}
 	public void setCost(int pathCost) {this.Cost = pathCost;}
-	public void setSingleNodeCost(int cost){
-		this.singleNodeCost = cost;
+	public void setaStarCost(int cost){
+		this.aStarCost = cost;
 	}
-	public int getSingleNodeCost(){
-		return this.singleNodeCost;
+	public int getaStarCost(){
+		return this.aStarCost;
 	}
 
 	public Node getPrevNode() {return this.prevNode;}
@@ -83,9 +83,9 @@ public class Node implements Comparable<Node> {
 
 	@Override
 	public int compareTo(Node o) {
-		if (this.getCost() > o.getCost()) {
+		if (this.getaStarCost() > o.getaStarCost()) {
 			return 1;
-		} else if (this.getCost() == o.getCost()) {
+		} else if (this.getaStarCost() == o.getaStarCost()) {
 			return 0;
 		} else {
 			return -1;

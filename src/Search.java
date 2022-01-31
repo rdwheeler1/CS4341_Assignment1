@@ -1,10 +1,8 @@
 package src;
 import src.Enums.Direction;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.PriorityQueue;
+import java.lang.reflect.Array;
+import java.util.*;
 
 import static src.Enums.Direction.*;
 
@@ -13,46 +11,46 @@ public class Search {
 	public Search() {
 	}
 
-	public PriorityQueue<Node> UCS(Character[][] map) {
+	public LinkedList<Node> AStar(Character[][] map) {
 		PriorityQueue<Node> frontier = new PriorityQueue<Node>();
 		HashMap<Node, Integer> explored = new HashMap<Node, Integer>();
-		PriorityQueue<Node> path = new PriorityQueue<Node>();
-		boolean goalFound = false;
+		LinkedList<Node> path = new LinkedList<>();
 		Node currNode = null;
 		Node goal = findGoal(map);
-		Heuristics heuristic = new Heuristics(1);
+		Heuristics heuristic = new Heuristics(4);
 
 		Node start = findStart(map);
+		start.setaStarCost(start.getCost() + heuristic.heuristic(start.absVert, start.absHoriz));
 		frontier.add(start);
 
 		//search through unexplored nodes until goal found
-		while(!frontier.isEmpty() && goalFound == false) {
-			if(frontier.isEmpty()) {return null;}
+		while(!frontier.isEmpty()) {
 
 			Node n = frontier.remove();
 			if(n.getValue().equals('G')) {
 				System.out.println(n.getCost());
-				goalFound = true;
 				currNode = n;
 				break;
 			}
 
 			System.out.println("exploring " + n.getValue());
-			explored.put(n, n.getCost() + heuristic.heuristic(n.absVert, n.absHoriz));
+			explored.put(n, n.getCost());
 
 			ArrayList<Node> neighbors = findNeighbors(map, n, goal);
 			for(Node child : neighbors) {
 				if(!frontier.contains(child) && !explored.containsKey(child)) {
 
 					System.out.println("from " + child.getPrevNode().getValue() + " to "+
-							child.getValue() + " costs: " +  child.getCost() + heuristic.heuristic(child.absVert, child.absHoriz));
+							child.getValue() + " costs: " +
+							(child.getCost() + heuristic.heuristic(child.getAbsVert(), child.getAbsHoriz())));
+					child.setaStarCost(child.getCost() + heuristic.heuristic(child.absVert,child.absHoriz));
 					frontier.add(child);
 				} else if(frontier.contains(child)) {	// && child.cost < pre-existing.cost
 					for(Node f : frontier) {	//****
 						if(f.equals(child) && child.getCost() + heuristic.heuristic(child.absVert, child.absHoriz)
 								< f.getCost() + heuristic.heuristic(f.absVert, f.absHoriz)) {
 							frontier.remove(f);
-							//child.setPrevNode(n);
+							child.setaStarCost(child.getCost() + heuristic.heuristic(child.absVert,child.absHoriz));
 							frontier.add(child);
 							break;
 						}
@@ -66,7 +64,7 @@ public class Search {
 
 		do {
 			currNode = currNode.getPrevNode();
-			path.add(currNode);
+			path.addFirst(currNode);
 		} while(!currNode.getValue().equals('S'));
 
 		return path;
@@ -101,26 +99,16 @@ public class Search {
 		int startHeight = start.getRow();
 		int goalHeight = goal.getRow();
 		int difference = startHeight - goalHeight;
-		int vert = Math.abs(difference);
-		return vert;
+		return Math.abs(difference);
 	}
 
 	public int getHoriz(Node start,Node goal) {
 		int startHeight = start.getCol();
 		int goalHeight = goal.getCol();
 		int difference = startHeight - goalHeight;
-		int horiz = Math.abs(difference);
-		return horiz;
+		return Math.abs(difference);
 	}
 
-
-	public void initializeClosedMap(boolean[][] map) {
-		for(int i = 0; i < map.length; i++) {
-			for(int j = 0; j < map[i].length; j++) {
-				map[i][j] = false;
-			}
-		}
-	}
 
 	public Direction getBashDirection(Direction direction){
 		Direction returnDirection = direction;
