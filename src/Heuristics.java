@@ -20,7 +20,13 @@ public class Heuristics {
             case 4:
                 return absHoriz + absVert;
             case 5:
-                return (int)Math.sqrt((absVert*absVert)+(absHoriz*absHoriz)) + absHoriz + absVert;
+                if(absHoriz == 0) {
+                    return absVert;
+                } else if(absVert == 0) {
+                    return absHoriz;
+                } else {
+                    return (int)Math.sqrt((absVert*absVert) + (absHoriz*absHoriz))  + (absHoriz+ absVert)/2;
+                }
             case 6:
                 int multiplyDistance2 = absHoriz * absVert;
                 return multiplyDistance2 * 3;
