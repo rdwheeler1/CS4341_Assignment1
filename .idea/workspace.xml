@@ -1,13 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="b0fbe9ab-59c4-4d1f-93b4-53103d736478" name="Changes" comment="Added 5 more boards">
+    <list default="true" id="b0fbe9ab-59c4-4d1f-93b4-53103d736478" name="Changes" comment="Movement types print out">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/CS4341_Assignment1/src/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CS4341_Assignment1/src/Main.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/CS4341_Assignment1/src/Search$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CS4341_Assignment1/src/Search$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/CS4341_Assignment1/src/Search.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CS4341_Assignment1/src/Search.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/CS4341_Assignment1/test/TestUCS.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CS4341_Assignment1/test/TestUCS.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Search.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Search.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/RandomMap.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/RandomMap.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/test/TestUCS.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/TestUCS.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -62,25 +59,11 @@
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Users\mewei\CS4341_Assignment1\Maps" />
       <recent name="$PROJECT_DIR$" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.TestUCS.UCSTest">
-    <configuration default="true" type="ArquillianTestNG" factoryName="" nameIsGenerated="true">
-      <option name="arquillianRunConfiguration">
-        <value>
-          <option name="containerStateName" value="" />
-        </value>
-      </option>
-      <option name="TEST_OBJECT" value="CLASS" />
-      <properties />
-      <listeners />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="TestUCS.UCSTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+  <component name="RunManager" selected="JUnit.TestUCS.RandomMapGenerator">
+    <configuration name="TestUCS.H6M10Test" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="CS4341_Assignment1" />
       <extension name="coverage">
         <pattern>
@@ -90,13 +73,13 @@
       </extension>
       <option name="PACKAGE_NAME" value="test" />
       <option name="MAIN_CLASS_NAME" value="test.TestUCS" />
-      <option name="METHOD_NAME" value="UCSTest" />
+      <option name="METHOD_NAME" value="H6M10Test" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="TestUCS.findStartTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="TestUCS.H6M7Test" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="CS4341_Assignment1" />
       <extension name="coverage">
         <pattern>
@@ -106,7 +89,55 @@
       </extension>
       <option name="PACKAGE_NAME" value="test" />
       <option name="MAIN_CLASS_NAME" value="test.TestUCS" />
-      <option name="METHOD_NAME" value="findStartTest" />
+      <option name="METHOD_NAME" value="H6M7Test" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="TestUCS.H6M8Test" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="CS4341_Assignment1" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="test.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="test" />
+      <option name="MAIN_CLASS_NAME" value="test.TestUCS" />
+      <option name="METHOD_NAME" value="H6M8Test" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="TestUCS.H6M9Test" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="CS4341_Assignment1" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="test.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="test" />
+      <option name="MAIN_CLASS_NAME" value="test.TestUCS" />
+      <option name="METHOD_NAME" value="H6M9Test" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="TestUCS.RandomMapGenerator" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="CS4341_Assignment1" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="test.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="test" />
+      <option name="MAIN_CLASS_NAME" value="test.TestUCS" />
+      <option name="METHOD_NAME" value="RandomMapGenerator" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -114,17 +145,18 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.TestUCS.UCSTest" />
-        <item itemvalue="JUnit.TestUCS.findStartTest" />
-        <item itemvalue="JUnit.TestUCS.UCSTest" />
-        <item itemvalue="JUnit.TestUCS.findStartTest" />
+        <item itemvalue="JUnit.TestUCS.RandomMapGenerator" />
+        <item itemvalue="JUnit.TestUCS.H6M10Test" />
+        <item itemvalue="JUnit.TestUCS.H6M9Test" />
+        <item itemvalue="JUnit.TestUCS.H6M8Test" />
+        <item itemvalue="JUnit.TestUCS.H6M7Test" />
       </list>
     </recent_temporary>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="736fb6c1-bd3a-429e-89d4-bd4630a09086" name="Changes" comment="" />
+      <changelist id="b0fbe9ab-59c4-4d1f-93b4-53103d736478" name="Changes" comment="Movement types print out" />
       <created>1643479270769</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
@@ -135,6 +167,8 @@
       <workItem from="1643498744445" duration="2521000" />
       <workItem from="1643574812245" duration="35000" />
       <workItem from="1643592271878" duration="54000" />
+      <workItem from="1643743267264" duration="1816000" />
+      <workItem from="1643756085454" duration="1160000" />
     </task>
     <task id="LOCAL-00001" summary="Movement types">
       <created>1643495716120</created>
@@ -164,28 +198,7 @@
       <option name="project" value="LOCAL" />
       <updated>1643597627190</updated>
     </task>
-    <task id="LOCAL-00005" summary="Added 5 more boards">
-      <created>1643673630003</created>
-      <option name="number" value="00005" />
-      <option name="presentableId" value="LOCAL-00005" />
-      <option name="project" value="LOCAL" />
-      <updated>1643673630003</updated>
-    </task>
-    <task id="LOCAL-00006" summary="Added 5 more boards">
-      <created>1643675587928</created>
-      <option name="number" value="00006" />
-      <option name="presentableId" value="LOCAL-00006" />
-      <option name="project" value="LOCAL" />
-      <updated>1643675587928</updated>
-    </task>
-    <task id="LOCAL-00007" summary="Updated Heuristics">
-      <created>1643675935188</created>
-      <option name="number" value="00007" />
-      <option name="presentableId" value="LOCAL-00007" />
-      <option name="project" value="LOCAL" />
-      <updated>1643675935188</updated>
-    </task>
-    <option name="localTasksCounter" value="8" />
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -208,8 +221,6 @@
     <MESSAGE value="Movement types fully implemented" />
     <MESSAGE value="Heuristic stuff" />
     <MESSAGE value="Astar is working now!" />
-    <MESSAGE value="Added 5 more boards" />
-    <MESSAGE value="Updated Heuristics" />
-    <option name="LAST_COMMIT_MESSAGE" value="Updated Heuristics" />
+    <option name="LAST_COMMIT_MESSAGE" value="Astar is working now!" />
   </component>
 </project>

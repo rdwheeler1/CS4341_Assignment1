@@ -8,15 +8,15 @@ import java.io.IOException;
 public class RandomMap {
 	int numRows;
 	int numCols;
-	Character[][] map;
+	String[][] map;
 	File file;
 	
 	public RandomMap(int r, int c, String name) {
 		this.numRows = r;
 		this.numCols = c;
-		this.map = new Character[r][c];
+		this.map = new String[r][c];
 		//change for each person
-		this.file = new File("C:/Users/abmoo/Documents/CS4341/" + name + ".txt");
+		this.file = new File("/Users/rdwheeler/Downloads/RandomMaps/" + name + ".txt");
 		try {
 			FileWriter fw = new FileWriter(file.getAbsoluteFile());
 			BufferedWriter bw = new BufferedWriter(fw);
@@ -26,11 +26,11 @@ public class RandomMap {
 					double min = 1;
 					double max = 9;
 					int num = (int) Math.floor(Math.random()*(max-min+1)+min);
-					this.map[i][j] = (char) num;
-					System.out.print(num + '\t');
+					this.map[i][j] = String.valueOf(num);
+					System.out.print(num + "\t");
 //					if(j == numCols - 1) sb.append(map[i][j]+'\t');	//shouldn't tab last column?
 //					else sb.append(map[i][j]);
-					sb.append(map[i][j]+'\t');
+					sb.append(map[i][j]).append("\t");
 				}
 				sb.append('\n');
 				System.out.print('\n');

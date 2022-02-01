@@ -8,6 +8,7 @@ import org.junit.jupiter.api.Test;
 
 import src.MapInitializer;
 import src.Node;
+import src.RandomMap;
 import src.Search;
 
 class TestUCS {
@@ -473,6 +474,16 @@ class TestUCS {
 		LinkedList<Node> a = searchHeuristic6.AStar(map10.getMap());
 		a.stream().forEach(x -> System.out.print(x.getValue() + " -> "));
 		assertFalse(a.isEmpty());
+	}
+
+	@Test
+	void RandomMapGenerator(){
+		RandomMap generator = new RandomMap(300,300, "Test2Tab");
+	}
+
+	@Test
+	void randomMapTest(){
+
 	}
 
 }
