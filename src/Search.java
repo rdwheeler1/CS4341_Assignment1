@@ -79,8 +79,7 @@ public class Search {
 
 		int numberOfNodes = explored.size();
 
-		System.out.println("The time of the path was " + pathScore);
-		System.out.println("The score of the path was " + (100 - numberOfMoves));
+		System.out.println("The score of the path was " + pathScore);
 		System.out.println("The number of moves was " + numberOfMoves);
 		System.out.println("The number of nodes expanded was " + numberOfNodes);
 		System.out.println("The order of moves made was:");

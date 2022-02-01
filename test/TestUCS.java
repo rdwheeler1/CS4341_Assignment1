@@ -6,6 +6,7 @@ import java.util.LinkedList;
 
 import org.junit.jupiter.api.Test;
 
+import src.MapInitializer;
 import src.Node;
 import src.Search;
 
@@ -14,7 +15,24 @@ class TestUCS {
 	Character[][] testBoard = {{'4', 'G', '4', '6'},
 			{'2', '9', '9', '6'},
 			{'1', '4', 'S', '3'}};
-	Search search = new Search(1);
+	Search searchHeuristic1 = new Search(1);
+	Search searchHeuristic2 = new Search(2);
+	Search searchHeuristic3 = new Search(3);
+	Search searchHeuristic4 = new Search(4);
+	Search searchHeuristic5 = new Search(5);
+	Search searchHeuristic6 = new Search(6);
+
+	MapInitializer map1 = new MapInitializer("Maps/Map1.txt");
+	MapInitializer map2 = new MapInitializer("Maps/Map2.txt");
+	MapInitializer map3 = new MapInitializer("Maps/Map3.txt");
+	MapInitializer map4 = new MapInitializer("Maps/Map4.txt");
+	MapInitializer map5 = new MapInitializer("Maps/Map5.txt");
+	MapInitializer map6 = new MapInitializer("Maps/Map6.txt");
+	MapInitializer map7 = new MapInitializer("Maps/Map7.txt");
+	MapInitializer map8 = new MapInitializer("Maps/Map8.txt");
+	MapInitializer map9 = new MapInitializer("Maps/Map9.txt");
+	MapInitializer map10 = new MapInitializer("Maps/Map10.txt");
+
 
 //	@Test
 //	void findStartTest() {
@@ -99,7 +117,7 @@ class TestUCS {
 
 	@Test
 	void UCSTest() {
-		LinkedList<Node> a = search.AStar(testBoard);
+		LinkedList<Node> a = searchHeuristic5.AStar(map1.getMap());
 		a.stream().forEach(x -> System.out.print(x.getValue() + " -> "));
 		assertFalse(a.isEmpty());
 	}
