@@ -14,7 +14,7 @@ class TestUCS {
 	Character[][] testBoard = {{'4', 'G', '4', '6'},
 			{'2', '9', '9', '6'},
 			{'1', '4', 'S', '3'}};
-	Search search = new Search();
+	Search search = new Search(1);
 
 //	@Test
 //	void findStartTest() {

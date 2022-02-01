@@ -4,7 +4,8 @@ public class Main {
 
     public static void main(String [] args) {
         MapInitializer mapInitializer = new MapInitializer(args[0]);
-        Search search = new Search();
+        int h = Integer.parseInt(args[1]);
+        Search search = new Search(h);
         search.AStar(mapInitializer.getMap());
     }
 

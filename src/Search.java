@@ -9,8 +9,11 @@ import static src.Enums.Direction.*;
 import static src.Enums.MoveType.*;
 
 public class Search {
+	
+	int heuristic;
 
-	public Search() {
+	public Search(int h) {
+		this.heuristic = h;
 	}
 
 	public LinkedList<Node> AStar(Character[][] map) {
@@ -19,7 +22,7 @@ public class Search {
 		LinkedList<Node> path = new LinkedList<>();
 		Node currNode = null;
 		Node goal = findGoal(map);
-		Heuristics heuristic = new Heuristics(5);
+		Heuristics heuristic = new Heuristics(this.heuristic);
 
 		Node start = findStart(map);
 		start.setaStarCost(start.getCost() + heuristic.heuristic(start.getAbsVert(), start.getAbsHoriz()));
