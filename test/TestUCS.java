@@ -114,10 +114,363 @@ class TestUCS {
 //		assertTrue(pq.peek().getCost() == 10);
 //		System.out.println("");
 //	}
-
 	@Test
-	void UCSTest() {
+	void H1M1Test() {
+		LinkedList<Node> a = searchHeuristic1.AStar(map1.getMap());
+		a.stream().forEach(x -> System.out.print(x.getValue() + " -> "));
+		assertFalse(a.isEmpty());
+	}
+	@Test
+	void H1M2est() {
+		LinkedList<Node> a = searchHeuristic1.AStar(map2.getMap());
+		a.stream().forEach(x -> System.out.print(x.getValue() + " -> "));
+		assertFalse(a.isEmpty());
+	}
+	@Test
+	void H1M3Test() {
+		LinkedList<Node> a = searchHeuristic1.AStar(map3.getMap());
+		a.stream().forEach(x -> System.out.print(x.getValue() + " -> "));
+		assertFalse(a.isEmpty());
+	}
+	@Test
+	void H1M4Test() {
+		LinkedList<Node> a = searchHeuristic1.AStar(map4.getMap());
+		a.stream().forEach(x -> System.out.print(x.getValue() + " -> "));
+		assertFalse(a.isEmpty());
+	}
+	@Test
+	void H1M5Test() {
+		LinkedList<Node> a = searchHeuristic1.AStar(map5.getMap());
+		a.stream().forEach(x -> System.out.print(x.getValue() + " -> "));
+		assertFalse(a.isEmpty());
+	}
+	@Test
+	void H1M6Test() {
+		LinkedList<Node> a = searchHeuristic1.AStar(map6.getMap());
+		a.stream().forEach(x -> System.out.print(x.getValue() + " -> "));
+		assertFalse(a.isEmpty());
+	}
+	@Test
+	void H1M7Test() {
+		LinkedList<Node> a = searchHeuristic1.AStar(map7.getMap());
+		a.stream().forEach(x -> System.out.print(x.getValue() + " -> "));
+		assertFalse(a.isEmpty());
+	}
+	@Test
+	void H1M8Test() {
+		LinkedList<Node> a = searchHeuristic1.AStar(map8.getMap());
+		a.stream().forEach(x -> System.out.print(x.getValue() + " -> "));
+		assertFalse(a.isEmpty());
+	}
+	@Test
+	void H1M9Test() {
+		LinkedList<Node> a = searchHeuristic1.AStar(map9.getMap());
+		a.stream().forEach(x -> System.out.print(x.getValue() + " -> "));
+		assertFalse(a.isEmpty());
+	}
+	@Test
+	void H1M10Test() {
+		LinkedList<Node> a = searchHeuristic1.AStar(map10.getMap());
+		a.stream().forEach(x -> System.out.print(x.getValue() + " -> "));
+		assertFalse(a.isEmpty());
+	}
+	@Test
+	void H2M1Test() {
+		LinkedList<Node> a = searchHeuristic2.AStar(map1.getMap());
+		a.stream().forEach(x -> System.out.print(x.getValue() + " -> "));
+		assertFalse(a.isEmpty());
+	}
+	@Test
+	void H2M2est() {
+		LinkedList<Node> a = searchHeuristic2.AStar(map2.getMap());
+		a.stream().forEach(x -> System.out.print(x.getValue() + " -> "));
+		assertFalse(a.isEmpty());
+	}
+	@Test
+	void H2M3Test() {
+		LinkedList<Node> a = searchHeuristic2.AStar(map3.getMap());
+		a.stream().forEach(x -> System.out.print(x.getValue() + " -> "));
+		assertFalse(a.isEmpty());
+	}
+	@Test
+	void H2M4Test() {
+		LinkedList<Node> a = searchHeuristic2.AStar(map4.getMap());
+		a.stream().forEach(x -> System.out.print(x.getValue() + " -> "));
+		assertFalse(a.isEmpty());
+	}
+	@Test
+	void H2M5Test() {
+		LinkedList<Node> a = searchHeuristic2.AStar(map5.getMap());
+		a.stream().forEach(x -> System.out.print(x.getValue() + " -> "));
+		assertFalse(a.isEmpty());
+	}
+	@Test
+	void H2M6Test() {
+		LinkedList<Node> a = searchHeuristic2.AStar(map6.getMap());
+		a.stream().forEach(x -> System.out.print(x.getValue() + " -> "));
+		assertFalse(a.isEmpty());
+	}
+	@Test
+	void H2M7Test() {
+		LinkedList<Node> a = searchHeuristic2.AStar(map7.getMap());
+		a.stream().forEach(x -> System.out.print(x.getValue() + " -> "));
+		assertFalse(a.isEmpty());
+	}
+	@Test
+	void H2M8Test() {
+		LinkedList<Node> a = searchHeuristic2.AStar(map8.getMap());
+		a.stream().forEach(x -> System.out.print(x.getValue() + " -> "));
+		assertFalse(a.isEmpty());
+	}
+	@Test
+	void H2M9Test() {
+		LinkedList<Node> a = searchHeuristic2.AStar(map9.getMap());
+		a.stream().forEach(x -> System.out.print(x.getValue() + " -> "));
+		assertFalse(a.isEmpty());
+	}
+	@Test
+	void H2M10Test() {
+		LinkedList<Node> a = searchHeuristic2.AStar(map10.getMap());
+		a.stream().forEach(x -> System.out.print(x.getValue() + " -> "));
+		assertFalse(a.isEmpty());
+	}
+	@Test
+	void H3M1Test() {
+		LinkedList<Node> a = searchHeuristic3.AStar(map1.getMap());
+		a.stream().forEach(x -> System.out.print(x.getValue() + " -> "));
+		assertFalse(a.isEmpty());
+}
+	@Test
+	void H3M2est() {
+		LinkedList<Node> a = searchHeuristic3.AStar(map2.getMap());
+		a.stream().forEach(x -> System.out.print(x.getValue() + " -> "));
+		assertFalse(a.isEmpty());
+	}
+	@Test
+	void H3M3Test() {
+		LinkedList<Node> a = searchHeuristic3.AStar(map3.getMap());
+		a.stream().forEach(x -> System.out.print(x.getValue() + " -> "));
+		assertFalse(a.isEmpty());
+	}
+	@Test
+	void H3M4Test() {
+		LinkedList<Node> a = searchHeuristic3.AStar(map4.getMap());
+		a.stream().forEach(x -> System.out.print(x.getValue() + " -> "));
+		assertFalse(a.isEmpty());
+	}
+	@Test
+	void H3M5Test() {
+		LinkedList<Node> a = searchHeuristic3.AStar(map5.getMap());
+		a.stream().forEach(x -> System.out.print(x.getValue() + " -> "));
+		assertFalse(a.isEmpty());
+	}
+	@Test
+	void H3M6Test() {
+		LinkedList<Node> a = searchHeuristic3.AStar(map6.getMap());
+		a.stream().forEach(x -> System.out.print(x.getValue() + " -> "));
+		assertFalse(a.isEmpty());
+	}
+	@Test
+	void H3M7Test() {
+		LinkedList<Node> a = searchHeuristic3.AStar(map7.getMap());
+		a.stream().forEach(x -> System.out.print(x.getValue() + " -> "));
+		assertFalse(a.isEmpty());
+	}
+	@Test
+	void H3M8Test() {
+		LinkedList<Node> a = searchHeuristic3.AStar(map8.getMap());
+		a.stream().forEach(x -> System.out.print(x.getValue() + " -> "));
+		assertFalse(a.isEmpty());
+	}
+	@Test
+	void H3M9Test() {
+		LinkedList<Node> a = searchHeuristic3.AStar(map9.getMap());
+		a.stream().forEach(x -> System.out.print(x.getValue() + " -> "));
+		assertFalse(a.isEmpty());
+	}
+	@Test
+	void H3M10Test() {
+		LinkedList<Node> a = searchHeuristic3.AStar(map10.getMap());
+		a.stream().forEach(x -> System.out.print(x.getValue() + " -> "));
+		assertFalse(a.isEmpty());
+	}
+	@Test
+	void H4M1Test() {
+		LinkedList<Node> a = searchHeuristic4.AStar(map1.getMap());
+		a.stream().forEach(x -> System.out.print(x.getValue() + " -> "));
+		assertFalse(a.isEmpty());
+	}
+	@Test
+	void H4M2est() {
+		LinkedList<Node> a = searchHeuristic4.AStar(map2.getMap());
+		a.stream().forEach(x -> System.out.print(x.getValue() + " -> "));
+		assertFalse(a.isEmpty());
+	}
+	@Test
+	void H4M3Test() {
+		LinkedList<Node> a = searchHeuristic4.AStar(map3.getMap());
+		a.stream().forEach(x -> System.out.print(x.getValue() + " -> "));
+		assertFalse(a.isEmpty());
+	}
+	@Test
+	void H4M4Test() {
+		LinkedList<Node> a = searchHeuristic4.AStar(map4.getMap());
+		a.stream().forEach(x -> System.out.print(x.getValue() + " -> "));
+		assertFalse(a.isEmpty());
+	}
+	@Test
+	void H4M5Test() {
+		LinkedList<Node> a = searchHeuristic4.AStar(map5.getMap());
+		a.stream().forEach(x -> System.out.print(x.getValue() + " -> "));
+		assertFalse(a.isEmpty());
+	}
+	@Test
+	void H4M6Test() {
+		LinkedList<Node> a = searchHeuristic4.AStar(map6.getMap());
+		a.stream().forEach(x -> System.out.print(x.getValue() + " -> "));
+		assertFalse(a.isEmpty());
+	}
+	@Test
+	void H4M7Test() {
+		LinkedList<Node> a = searchHeuristic4.AStar(map7.getMap());
+		a.stream().forEach(x -> System.out.print(x.getValue() + " -> "));
+		assertFalse(a.isEmpty());
+	}
+	@Test
+	void H4M8Test() {
+		LinkedList<Node> a = searchHeuristic4.AStar(map8.getMap());
+		a.stream().forEach(x -> System.out.print(x.getValue() + " -> "));
+		assertFalse(a.isEmpty());
+	}
+	@Test
+	void H4M9Test() {
+		LinkedList<Node> a = searchHeuristic4.AStar(map9.getMap());
+		a.stream().forEach(x -> System.out.print(x.getValue() + " -> "));
+		assertFalse(a.isEmpty());
+	}
+	@Test
+	void H4M10Test() {
+		LinkedList<Node> a = searchHeuristic4.AStar(map10.getMap());
+		a.stream().forEach(x -> System.out.print(x.getValue() + " -> "));
+		assertFalse(a.isEmpty());
+	}
+	@Test
+	void H5M1Test() {
 		LinkedList<Node> a = searchHeuristic5.AStar(map1.getMap());
+		a.stream().forEach(x -> System.out.print(x.getValue() + " -> "));
+		assertFalse(a.isEmpty());
+	}
+	@Test
+	void H5M2est() {
+		LinkedList<Node> a = searchHeuristic5.AStar(map2.getMap());
+		a.stream().forEach(x -> System.out.print(x.getValue() + " -> "));
+		assertFalse(a.isEmpty());
+	}
+	@Test
+	void H5M3Test() {
+		LinkedList<Node> a = searchHeuristic5.AStar(map3.getMap());
+		a.stream().forEach(x -> System.out.print(x.getValue() + " -> "));
+		assertFalse(a.isEmpty());
+	}
+	@Test
+	void H5M4Test() {
+		LinkedList<Node> a = searchHeuristic5.AStar(map4.getMap());
+		a.stream().forEach(x -> System.out.print(x.getValue() + " -> "));
+		assertFalse(a.isEmpty());
+	}
+	@Test
+	void H5M5Test() {
+		LinkedList<Node> a = searchHeuristic5.AStar(map5.getMap());
+		a.stream().forEach(x -> System.out.print(x.getValue() + " -> "));
+		assertFalse(a.isEmpty());
+	}
+	@Test
+	void H5M6Test() {
+		LinkedList<Node> a = searchHeuristic5.AStar(map6.getMap());
+		a.stream().forEach(x -> System.out.print(x.getValue() + " -> "));
+		assertFalse(a.isEmpty());
+	}
+	@Test
+	void H5M7Test() {
+		LinkedList<Node> a = searchHeuristic5.AStar(map7.getMap());
+		a.stream().forEach(x -> System.out.print(x.getValue() + " -> "));
+		assertFalse(a.isEmpty());
+	}
+	@Test
+	void H5M8Test() {
+		LinkedList<Node> a = searchHeuristic5.AStar(map8.getMap());
+		a.stream().forEach(x -> System.out.print(x.getValue() + " -> "));
+		assertFalse(a.isEmpty());
+	}
+	@Test
+	void H5M9Test() {
+		LinkedList<Node> a = searchHeuristic5.AStar(map9.getMap());
+		a.stream().forEach(x -> System.out.print(x.getValue() + " -> "));
+		assertFalse(a.isEmpty());
+	}
+	@Test
+	void H5M10Test() {
+		LinkedList<Node> a = searchHeuristic5.AStar(map10.getMap());
+		a.stream().forEach(x -> System.out.print(x.getValue() + " -> "));
+		assertFalse(a.isEmpty());
+	}
+	@Test
+	void H6M1Test() {
+		LinkedList<Node> a = searchHeuristic6.AStar(map1.getMap());
+		a.stream().forEach(x -> System.out.print(x.getValue() + " -> "));
+		assertFalse(a.isEmpty());
+	}
+	@Test
+	void H6M2est() {
+		LinkedList<Node> a = searchHeuristic6.AStar(map2.getMap());
+		a.stream().forEach(x -> System.out.print(x.getValue() + " -> "));
+		assertFalse(a.isEmpty());
+	}
+	@Test
+	void H6M3Test() {
+		LinkedList<Node> a = searchHeuristic6.AStar(map3.getMap());
+		a.stream().forEach(x -> System.out.print(x.getValue() + " -> "));
+		assertFalse(a.isEmpty());
+	}
+	@Test
+	void H6M4Test() {
+		LinkedList<Node> a = searchHeuristic6.AStar(map4.getMap());
+		a.stream().forEach(x -> System.out.print(x.getValue() + " -> "));
+		assertFalse(a.isEmpty());
+	}
+	@Test
+	void H6M5Test() {
+		LinkedList<Node> a = searchHeuristic6.AStar(map5.getMap());
+		a.stream().forEach(x -> System.out.print(x.getValue() + " -> "));
+		assertFalse(a.isEmpty());
+	}
+	@Test
+	void H6M6Test() {
+		LinkedList<Node> a = searchHeuristic6.AStar(map6.getMap());
+		a.stream().forEach(x -> System.out.print(x.getValue() + " -> "));
+		assertFalse(a.isEmpty());
+	}
+	@Test
+	void H6M7Test() {
+		LinkedList<Node> a = searchHeuristic6.AStar(map7.getMap());
+		a.stream().forEach(x -> System.out.print(x.getValue() + " -> "));
+		assertFalse(a.isEmpty());
+	}
+	@Test
+	void H6M8Test() {
+		LinkedList<Node> a = searchHeuristic6.AStar(map8.getMap());
+		a.stream().forEach(x -> System.out.print(x.getValue() + " -> "));
+		assertFalse(a.isEmpty());
+	}
+	@Test
+	void H6M9Test() {
+		LinkedList<Node> a = searchHeuristic6.AStar(map9.getMap());
+		a.stream().forEach(x -> System.out.print(x.getValue() + " -> "));
+		assertFalse(a.isEmpty());
+	}
+	@Test
+	void H6M10Test() {
+		LinkedList<Node> a = searchHeuristic6.AStar(map10.getMap());
 		a.stream().forEach(x -> System.out.print(x.getValue() + " -> "));
 		assertFalse(a.isEmpty());
 	}
