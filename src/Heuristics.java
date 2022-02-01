@@ -28,8 +28,13 @@ public class Heuristics {
                     return (int)Math.sqrt((absVert*absVert) + (absHoriz*absHoriz))  + (absHoriz+ absVert)/2;
                 }
             case 6:
-                int multiplyDistance2 = absHoriz * absVert;
-                return multiplyDistance2 * 3;
+                if(absHoriz == 0) {
+                    return absVert * 3;
+                } else if(absVert == 0) {
+                    return absHoriz * 3;
+                } else {
+                    return (int)(Math.sqrt((absVert*absVert) + (absHoriz*absHoriz))  + (absHoriz+ absVert)/2) * 3;
+                }
         }
         return 0;
     }

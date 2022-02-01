@@ -70,7 +70,7 @@ public class Search {
 			path.addFirst(currNode);
 		} while(!currNode.getValue().equals('S'));
 
-		int pathScore = path.get(path.size()-1).getCost();
+		int pathScore = 100 - path.get(path.size()-1).getCost();
 
 		int numberOfMoves = path.size() - 1;
 
