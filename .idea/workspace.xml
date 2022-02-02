@@ -3,12 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="b0fbe9ab-59c4-4d1f-93b4-53103d736478" name="Changes" comment="cleanup">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/CS4341_Assignment1/src/Enums/MoveType.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CS4341_Assignment1/src/Enums/MoveType.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/CS4341_Assignment1/src/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CS4341_Assignment1/src/Main.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/CS4341_Assignment1/src/Search.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CS4341_Assignment1/src/Search.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/CS4341_Assignment1/test/TestUCS.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CS4341_Assignment1/test/TestUCS.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/TestUCS.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/TestUCS.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/CS4341_Assignment1/src/Enums/Direction.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CS4341_Assignment1/src/Enums/Direction.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/CS4341_Assignment1/src/Node.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CS4341_Assignment1/src/Node.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -177,7 +173,8 @@
       <workItem from="1643592271878" duration="54000" />
       <workItem from="1643743267264" duration="1816000" />
       <workItem from="1643756085454" duration="6936000" />
-      <workItem from="1643763051860" duration="5211000" />
+      <workItem from="1643763051860" duration="5221000" />
+      <workItem from="1643769836750" duration="657000" />
     </task>
     <task id="LOCAL-00001" summary="Movement types">
       <created>1643495716120</created>
@@ -235,7 +232,14 @@
       <option name="project" value="LOCAL" />
       <updated>1643763027385</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="cleanup">
+      <created>1643769663991</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1643769663991</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
