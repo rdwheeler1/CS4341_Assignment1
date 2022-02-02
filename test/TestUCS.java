@@ -3,6 +3,7 @@ package test;
 import static org.junit.jupiter.api.Assertions.*;
 
 import java.util.LinkedList;
+import java.util.Timer;
 
 import org.junit.jupiter.api.Test;
 
@@ -476,14 +477,20 @@ class TestUCS {
 		assertFalse(a.isEmpty());
 	}
 
-	@Test
-	void RandomMapGenerator(){
-		RandomMap generator = new RandomMap(300,300, "Test2Tab");
-	}
+//	@Test
+//	void RandomMapGenerator(){
+//		RandomMap generator = new RandomMap(46,46, "Map10");
+//	}
 
-	@Test
-	void randomMapTest(){
-
-	}
+//	@Test
+//	void randomMapTest(){
+//		long start = System.nanoTime();
+//		LinkedList<Node> a = searchHeuristic1.AStar(map11.getMap());
+//		long finish = System.nanoTime();
+//		long timeElapsed = finish - start;
+//		a.stream().forEach(x -> System.out.print(x.getValue() + " -> "));
+//		System.out.println("Time Elapsed is ====== " + timeElapsed);
+//		assertFalse(a.isEmpty());
+//	}
 
 }
