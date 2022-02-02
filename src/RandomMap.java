@@ -41,25 +41,4 @@ public class RandomMap {
 			
 		}
 	}
-	
-//	public void makeFile(String name) {
-//		try {
-//
-//		    File file = new File(name + ".txt");
-//
-//		    if (!file.exists()) {
-//		        file.createNewFile();
-//		    }
-//
-//		    FileWriter fw = new FileWriter(file.getAbsoluteFile());
-//		    try (BufferedWriter bw = new BufferedWriter(fw)) {
-//		        bw.write(map, 0, board.length());
-//		    }
-//
-//		    System.out.println("Map saved");
-//
-//		} catch (IOException e) {
-//
-//		}
-//	}
 }

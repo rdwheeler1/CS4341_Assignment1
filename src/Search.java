@@ -33,21 +33,15 @@ public class Search {
 
 			Node n = frontier.remove();
 			if(n.getValue().equals('G')) {
-//				System.out.println(n.getCost());
 				currNode = n;
 				break;
 			}
 
-//			System.out.println("exploring " + n.getValue());
 			explored.put(n, n.getCost());
 
 			ArrayList<Node> neighbors = findNeighbors(map, n, goal);
 			for(Node child : neighbors) {
 				if(!frontier.contains(child) && !explored.containsKey(child)) {
-
-//					System.out.println("from " + child.getPrevNode().getValue() + " to "+
-//							child.getValue() + " costs: " +
-//							(child.getCost() + heuristic.heuristic(child.getAbsVert(), child.getAbsHoriz())));
 					child.setaStarCost(child.getCost() + heuristic.heuristic(child.getAbsVert(),child.getAbsHoriz()));
 					frontier.add(child);
 				} else if(frontier.contains(child)) {	// && child.cost < pre-existing.cost
@@ -91,7 +85,8 @@ public class Search {
 		return path;
 
 	}
-	
+
+	//find start of map
 	public Node findStart(Character[][] map) {
 		for(int i = 0; i < map.length; i++) {
 			for(int j = 0; j < map[i].length; j++) {
@@ -104,6 +99,7 @@ public class Search {
 		return null;
 	}
 
+	//find goal of map
 	public Node findGoal(Character[][] map) {
 		for(int i = 0; i < map.length; i++) {
 			for(int j = 0; j < map[i].length; j++) {
@@ -116,6 +112,7 @@ public class Search {
 		return null;
 	}
 
+	//get vertical diff of start to finish
 	public int getVert(Node start,Node goal) {
 		int startHeight = start.getRow();
 		int goalHeight = goal.getRow();
@@ -123,6 +120,7 @@ public class Search {
 		return Math.abs(difference);
 	}
 
+	//get horizontal difference from start to finish
 	public int getHoriz(Node start,Node goal) {
 		int startHeight = start.getCol();
 		int goalHeight = goal.getCol();
@@ -131,6 +129,7 @@ public class Search {
 	}
 
 
+	//get the direction of bash when used
 	public Direction getBashDirection(Direction direction){
 		Direction returnDirection = direction;
 		switch (direction){
@@ -142,6 +141,7 @@ public class Search {
 		return returnDirection;
 	}
 
+	//gets the direction of previous
 	public Direction getNonBashDirection(Direction direction){
 		Direction returnDirection = direction;
 		switch (direction){
@@ -153,6 +153,7 @@ public class Search {
 		return returnDirection;
 	}
 
+	//turn right
 	public Direction getRightDirection(Direction direction){
 		Direction returnDirection = direction;
 		switch (direction){
@@ -164,6 +165,7 @@ public class Search {
 		return returnDirection;
 	}
 
+	//turn node left
 	public Direction getLeftDirection(Direction direction){
 		Direction returnDirection = direction;
 		switch (direction){
@@ -199,7 +201,6 @@ public class Search {
 				neighbors.add(onlyBash);
 			}
 			catch (Exception e){
-				//System.out.println("Neighbor is out of bounds");
 				return neighbors;
 			}
 			return neighbors;
@@ -219,7 +220,6 @@ public class Search {
 				bash.setAbsVert(getVert(bash, goal));
 				neighbors.add(bash);
 			} catch (Exception e){
-				//System.out.println("Bash Neighbor is out of bounds");
 			}
 			try{
 				switch (n.getDirection()){
@@ -234,7 +234,6 @@ public class Search {
 				forward.setAbsVert(getVert(forward, goal));
 				neighbors.add(forward);
 			} catch (Exception e){
-				//System.out.println("Forward neighbor is out of bounds");
 			}
 			right = new Node(n.getRow(), n.getCol(), map[n.getRow()][n.getCol()], getRightDirection(n.getDirection()), MoveType.RIGHT);
 			left = new Node(n.getRow(), n.getCol(), map[n.getRow()][n.getCol()], getLeftDirection(n.getDirection()), MoveType.LEFT);

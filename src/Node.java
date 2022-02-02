@@ -75,6 +75,7 @@ public class Node implements Comparable<Node> {
 	public Node getPrevNode() {return this.prevNode;}
 	public void setPrevNode(Node prevNode) {this.prevNode = prevNode;}
 
+	//checks if a node is a bash node
 	public boolean isBashNode(){
 		return this.direction.equals(Direction.BASHUP) || this.direction.equals(Direction.BASHRIGHT) ||
 				this.direction.equals(Direction.BASHDOWN) || this.direction.equals(Direction.BASHLEFT);
