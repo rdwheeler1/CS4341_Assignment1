@@ -2,6 +2,7 @@ package test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+import java.lang.management.MemoryUsage;
 import java.util.LinkedList;
 
 import org.junit.jupiter.api.Test;
@@ -33,6 +34,7 @@ class TestUCS {
 	MapInitializer map8 = new MapInitializer("Maps/Map8.txt");
 	MapInitializer map9 = new MapInitializer("Maps/Map9.txt");
 	MapInitializer map10 = new MapInitializer("Maps/Map10.txt");
+//	MapInitializer map11 = new MapInitializer("/Users/rdwheeler/Downloads/RandomMaps/Map11.txt");
 
 
 //	@Test
@@ -115,6 +117,7 @@ class TestUCS {
 //		assertTrue(pq.peek().getCost() == 10);
 //		System.out.println("");
 //	}
+
 	@Test
 	void H1M1Test() {
 		LinkedList<Node> a = searchHeuristic1.AStar(map1.getMap());
@@ -478,17 +481,18 @@ class TestUCS {
 
 //	@Test
 //	void RandomMapGenerator(){
-//		RandomMap generator = new RandomMap(46,46, "Map10");
+//		RandomMap generator = new RandomMap(47,47, "Map11");
 //	}
 
 //	@Test
 //	void randomMapTest(){
 //		long start = System.nanoTime();
-//		LinkedList<Node> a = searchHeuristic1.AStar(map11.getMap());
+//		LinkedList<Node> a = searchHeuristic5.AStar(map11.getMap());
 //		long finish = System.nanoTime();
 //		long timeElapsed = finish - start;
 //		a.stream().forEach(x -> System.out.print(x.getValue() + " -> "));
 //		System.out.println("Time Elapsed is ====== " + timeElapsed);
+//		System.out.println((Runtime.getRuntime().totalMemory() - Runtime.getRuntime().freeMemory()));
 //		assertFalse(a.isEmpty());
 //	}
 
